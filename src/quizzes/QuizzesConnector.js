@@ -7,8 +7,8 @@ import { loadData } from '../data/ActionCreator';
 import { TableMenuCategories } from './TableMenuCategories';
 import { DataGetter } from '../data/DataGetter';
 import { MiddleComponent } from './MiddleComponent';
-//import { QuizzesList } from './QuizzesList';
-//import { Timer } from './Timer';
+import { Footer } from './Footer';
+
 
 const randomQuestion = (allQuestion = []) => {
 	if(allQuestion.length === 0) {
@@ -17,7 +17,7 @@ const randomQuestion = (allQuestion = []) => {
 
 	var subQuestions = [];
 	var ids = allQuestion.map(q => q.id);
-	while (subQuestions.length < 1) {
+	while (subQuestions.length < 5) {
 		var randomIndex = Math.floor(Math.random()*ids.length);
 		var selectedId = ids[randomIndex];
 		var selectedQuestion = allQuestion.find(q => q.id === selectedId);
@@ -42,19 +42,23 @@ export const QuizzesConnector = connect(mapStateToProps,mapDispatchToProps)(
 
 	render() {
 		if(!this.props.categories || this.props.categories.length === 0) {
-				return <h1> No Data </h1>
+				return <>
+					<span className="spinner-border"></span>
+					<span>Loading...</span>
+				</>
 			} else {
 				return <div className="container-fluid">
 							<Header categories = {this.props.categories} />
 						<Switch>
 							<Route path="/" exact = {true} render = {(routeProps) => 
 								<TableMenuCategories categories= {this.props.categories} />} />
-							<Route path="/:category" exact={true} render={(routeProps) =>
+							<Route path="/:category/:result?" exact={true} render={(routeProps) =>
 								<DataGetter {...this.props} {...routeProps} >
 									<MiddleComponent {...this.props} {...routeProps} />
 								</DataGetter>
 							} />
 						</Switch>
+							<Footer />
 						</div>
 					}
 			}

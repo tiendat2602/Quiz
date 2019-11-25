@@ -19,13 +19,15 @@ export class QuizzesAnswer extends Component {
 	}
 
 	render() {
-		return <div className="col-md-9 p-3">
+		return <div className="col-12 pl-5 pr-5 pt-2">
 						<div className="text-center bg-secondary text-white rounded">
 							<h1>Chúc mừng bạn đã hoàn thành bài thi</h1>
+							<p>Số câu trả lời đúng của bạn: {this.props.score}</p>
+							<p>Thời gian làm bài {this.props.minutes} phút {this.props.second} giây</p>
 							<p className="text-center">Mời bạn kiểm tra đáp án</p>
 						</div>
 						{Object.entries(this.props.questions).map(obj =>
-						<div key={obj[1].id} className="mb-4 border border-top-0 border-left-0 border-right-0">
+						<div key={obj[1].id} className="mb-4 pl-5 pr-5 border border-top-0 border-left-0 border-right-0">
 							<h6>
 								{`Question ${Number(obj[0])+1}: ${obj[1].question}`}
 							</h6>

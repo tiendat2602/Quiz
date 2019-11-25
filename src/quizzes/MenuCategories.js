@@ -8,7 +8,7 @@ export class MenuCategories extends Component {
 		return <>
 				
 				{ this.props.categories.map(cat =>
-						<Link to={cat} key={cat}
+						<Link to={`/${cat}`} key={cat}
 						className="dropdown-item text-success">
 							{cat.toUpperCase()}
 						</Link>

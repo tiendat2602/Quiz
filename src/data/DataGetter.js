@@ -4,18 +4,17 @@ import { dataTypes } from "../data/Types";
 export class DataGetter extends Component {
 
     render() {
-        return <div className="row mb-5"> 
+        console.log("DataGetter render()");
+        return <div className="row mb-5 ml-0 mr-0"> 
                     { this.props.children } 
             </div>
     }
 
     componentDidMount = () => {
-        console.log("DataGetter didmount()");
         this.getData();
     }
 
     componentDidUpdate = () => {
-        console.log("DataGetter didupdate()");
         this.getData();
     }
     

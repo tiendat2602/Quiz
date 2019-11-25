@@ -9,20 +9,15 @@ export class QuizzesList extends Component {
 		super(props);
 		this.state = {
 			questions: props.questions || [],
-			showAnswer: false,
 			selectedCategory: props.selected_category || "notSelect"
 		}
 	}
 
 	static getDerivedStateFromProps(props, state) {
-		console.log("QuizzesList getDerivedStateFromProps()");
-		if(props.selected_category !== state.selectedCategory) {
-				
-			console.log("update state.questions and select");
+		if(props.selected_category !== state.selectedCategory) {	
 			return {
 						questions: props.questions,
 						selectedCategory: props.selected_category,
-						showAnswer: false
 					}
 		}
 		
@@ -34,7 +29,7 @@ export class QuizzesList extends Component {
 
 			this.setState({questions: this.state.questions.map(q => {
 				if(q.id === question.id) {
-					return {...q,a: true, userAnswer: option};
+					return {...q,correctedUserAnswer: true, userAnswer: option};
 				} else {
 					return q;
 				}
@@ -43,7 +38,7 @@ export class QuizzesList extends Component {
 		} else {
 			this.setState({questions: this.state.questions.map(q => {
 				if(q.id === question.id) {
-					return {...q,a:false, userAnswer: option};
+					return {...q,correctedUserAnswer:false, userAnswer: option};
 				} else {
 					return q;
 				}
@@ -54,18 +49,20 @@ export class QuizzesList extends Component {
 	}
 
 	finalTest = () => {
-		const score = this.state.questions.filter(q => q.a).length;
-		console.log(score);
-		this.props.submitScore(score);
-		this.setState({showAnswer:true});
+		const score = this.state.questions.filter(q => q.correctedUserAnswer).length;
+		const questions = this.state.questions;
+		this.props.submitResult(questions,score);
+		this.props.history.push(`/${this.props.selected_category}/result`);
 	}
 
 	render() {
 		console.log("QuizzesList render()");
 		if(!this.props.questions) {
-			return <h1>no data</h1>
+			return <>
+					<span className="spinner-border"></span>
+					<span>Loading...</span>
+				</>
 		} else {
-			if(!this.state.showAnswer) {
 				return <div className="col-md-9 p-3">
 					{Object.entries(this.props.questions).map(obj =>
 						<div key={obj[1].id} className="mb-4 border border-top-0 border-left-0 border-right-0">
@@ -96,10 +93,6 @@ export class QuizzesList extends Component {
 						</button>
 					</div>
 			</div>
-			} else {
-
-				return <QuizzesAnswer questions = { this.state.questions } />
-		 	}
 		}
 	}
 }

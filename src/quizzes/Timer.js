@@ -6,14 +6,29 @@ export class Timer extends Component {
 		super(props);
 		this.state = {
 			minutes: "",
-			second: ""
+			second: "",
+			selectedCategory: props.selected_category || "notSelect",
+			reset:false
 		};
+		this.t = 0;
 	}
+
+	static getDerivedStateFromProps(props, state) {
+		if(props.selected_category !== state.selectedCategory) {	
+			return {
+						selectedCategory: props.selected_category,
+						reset: true
+					}
+		} else {
+			return {reset:false}
+		}
+		
+  }
 
 	timer = () => {
 
 		var start = 0;
-		const t = setInterval(() => {
+		this.t = setInterval(() => {
 			console.log("timer is running");
 			start =start+1;
 			var minutes = Math.floor(start/60);
@@ -25,18 +40,7 @@ export class Timer extends Component {
 			if(this.state.second < 10) {
 				this.setState({second: "0"+this.state.second});
 			}
-
-			if(this.props.stopTimer) {
-				clearInterval(t);
-			}
-
 		},1000);
-	}
-
-	handleClick = () => {
-		this.setState({stopTimer:false});
-		clearInterval(this.t);
-		this.timer();
 	}
 
 	render() {
@@ -50,19 +54,25 @@ export class Timer extends Component {
 							{this.state.minutes} : {this.state.second}
 						</span>
 					</p>
-					<p>
-						Số câu trả lời đúng: {this.props.score || "_ _"}
-					</p>
 				</div>
 		</div>
 	}
 
-	componentDidUpdate() {
-		console.log()
-	}
-
 	componentDidMount = () => {
 		this.timer();
+	}
+
+	componentDidUpdate = () => {
+		if(this.state.reset) {
+			clearInterval(this.t);
+			this.timer();
+		}
+	}
+
+	componentWillUnmount = () => {
+		console.log("Timer componentWillUnmount()");
+		clearInterval(this.t);
+		this.props.submitTime(this.state.minutes,this.state.second);
 	}
 	
 }
