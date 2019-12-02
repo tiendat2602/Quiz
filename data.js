@@ -5,8 +5,9 @@ return {
 			question:"What does HTML stand for?",
 			option:["Hyperlinks and Text Markup Language",
 					"Home Tool Markup Language",
-					"Hyper Text Markup Language"],
-			answer:"Hyper Text Markup Language"},	
+					"Hyper Text Markup Language",
+					"Hight Tech Mark Language"],
+			answer:"What does HTML stand for?"},	
 			{id:2,
 			question:"Who is making the Web standards?",
 			option:["The World Wide Web Consortium",
@@ -25,13 +26,15 @@ return {
 			question:"What is the correct HTML element for inserting a line break?",
 			option:["<break>",
 					"<lb>",
-					"<br>"],
+					"<br>",
+					"hr"],
 			answer:"<br>"},
 			{id:5,
 			question:"What is the correct HTML for adding a background color?",
 			option:["<background>yellow</background>",
 					"<body bg='yellow'>",
-					"<body style='background-color:yellow;'>"],
+					"<body style='background-color:yellow;'>",
+					"<body background='yellow' >"],
 			answer:"<body style='background-color:yellow;'>"},
 			{id:6,
 			question:"Choose the correct HTML element to define important text",
@@ -44,7 +47,8 @@ return {
 			question:"Choose the correct HTML element to define emphasized text",
 			option:["<em>",
 					"<i>",
-					"<italic>"],
+					"<italic>",
+					"<pre>"],
 			answer:"<em>"},
 			{id:8,
 			question:"What is the correct HTML for creating a hyperlink?",
@@ -64,7 +68,8 @@ return {
 			question:"How can you open a link in a new tab/browser window?",
 			option:["<a href='url' target='new'>",
 					"<a href='url' target='_blank'>",
-					"<a href='url' new>"],
+					"<a href='url' new>",
+					"<link href='url target='new'>"],
 			answer:"<a href='url' target='_blank'>"},
 			],
 	css: [	{id:1,
@@ -75,6 +80,26 @@ return {
 			 		  "Colorful Style Sheets"],
 			answer: "Cascading Style Sheets"
 			}
-		]
+		],
+	javascript: [{id:1,
+				question: "Inside which HTML element do we put the JavaScript?",
+				option: ["<scripting>","<script>","<js>","<javascript>"],
+				answer: "<script>"}
+				],
+	bootstrap: [{id:1,
+				question:"Which class provides a responsive fixed width container?",
+				option:[".container-fixed",".container-fluid",".container",".row"],
+				answer:".container"}
+				],
+	jquery: [{id:1,
+			 question:"Which sign does jQuery use as a shortcut for jQuery?",
+			 option: ["the % sign", "the $ sign","the ! sign","the ? sign"],
+			 answer:"the $ sign"}
+			],
+	xml: [{id:1,
+		 question:"What does XML stand for?",
+		 option: ["Example Markup Language","X-Markup Language","eXtensible Markup Language","eXtra Modern Link"],
+		 answer:"eXtensible Markup Language"}
+		 ]
 	}
 }

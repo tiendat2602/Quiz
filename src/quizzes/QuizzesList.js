@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../css/QuizzesList.css';
-import { QuizzesAnswer } from './QuizzesAnswer';
+
 
 
 export class QuizzesList extends Component {
