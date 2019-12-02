@@ -2,6 +2,7 @@ const express = require("express");
 const jsonServer = require("json-server");
 const chokidar = require("chokidar");
 const cors = require("cors");
+const auth = require("./authMiddleware");
 
 const fileName = process.argv[2] || "./data.js";
 const port = process.argv[3] || 3500;
@@ -21,8 +22,11 @@ const createServer = () => {
 createServer();
 
 app.use(cors());
-app.use(jsonServer.bodyParser)
+app.use(jsonServer.bodyParser);
+app.use(auth);
 app.use("/api", (req, resp, next) => router(req, resp, next));
+app.use("/admin", (req, resp, next) => router(req, resp, next));
+
 
 chokidar.watch(fileName).on("change", () => {
     console.log("Reloading web service data...");

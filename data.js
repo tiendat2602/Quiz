@@ -7,7 +7,7 @@ return {
 					"Home Tool Markup Language",
 					"Hyper Text Markup Language",
 					"Hight Tech Mark Language"],
-			answer:"What does HTML stand for?"},	
+			answer:"Hyper Text Markup Language"},	
 			{id:2,
 			question:"Who is making the Web standards?",
 			option:["The World Wide Web Consortium",

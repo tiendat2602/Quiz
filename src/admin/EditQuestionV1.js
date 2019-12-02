@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { dataTypes } from '../data/Types';
-import { ValidationError } from './ValidationError';
 
 export class EditQuestion extends Component {
 
@@ -12,8 +11,7 @@ export class EditQuestion extends Component {
 					   question:"",
 					   option:[],
 					   answer:""},
-			selectedItemID:-1,
-			validationErrors: {}
+			selectedItemID:-1
 		};
 	}
 
@@ -53,43 +51,15 @@ export class EditQuestion extends Component {
 	}
 
 	handleSubmitQuestion = () => {
-
-		this.setState(state => {
-			const newState = {...state, validationErrors: {}};
-
-			Object.entries(state.question).filter(item => item[0] !== "id").forEach(item => {
-				console.log("item in loop:",item);
-				if(item[0] === "option") {
-					const val = item[1];
-					var i;
-					for(i=0; i<4; i++) {
-						if(val[i] === undefined) {
-							const index = i+1;
-							const op = "option"+index;
-							newState.validationErrors[op] = "Giá trị không được để trống";
-						}
-					}
-				} else {
-					if(item[1] === "") {
-						newState.validationErrors[item[0]] = "Giá trị không được để trống";
-					}
-				}
-		});
-			return newState;
-		},() => {
-			console.log(Object.keys(this.state.validationErrors).length === 0);
-			if(Object.keys(this.state.validationErrors).length === 0) {
-				let mode = this.props.match.params.mode;
-				let dataType = this.props.match.params.category.toUpperCase();
-				let data = this.state.question;
-				if(mode === "create") {
-					this.props.storeQuestion(dataTypes[dataType],data)
-				} else {
-					this.props.updateQuestion(dataTypes[dataType],data);
-				}
-				this.props.history.push(`/admin/list/${dataType.toLowerCase()}`);
-			}
-		});
+		let mode = this.props.match.params.mode;
+		let dataType = this.props.match.params.category.toUpperCase();
+		let data = this.state.question;
+		if(mode === "create") {
+			this.props.storeQuestion(dataTypes[dataType],data)
+		} else {
+			this.props.updateQuestion(dataTypes[dataType],data);
+		}
+		this.props.history.push(`/admin/list/${dataType.toLowerCase()}`);
 	}
 
 	handleCancel = () => {
@@ -115,7 +85,6 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.question }
                    	autoComplete="off"
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.question } />
             </div>
             <div className="form-group">
                 <label className="font-weight-bold">Phương án 1</label>
@@ -123,7 +92,6 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.option[0] || "" }
                     autoComplete="off"
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.option1 } />
             </div>
             <div className="form-group">
                 <label className="font-weight-bold">Phương án 2</label>
@@ -131,7 +99,6 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.option[1] || "" }
                     autoComplete="off"
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.option2 } />
             </div>
             <div className="form-group">
                 <label className="font-weight-bold">Phương án 3</label>
@@ -139,7 +106,6 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.option[2] || "" }
                     autoComplete="off"
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.option3 } />
             </div>
             <div className="form-group">
                 <label className="font-weight-bold">Phương án 4</label>
@@ -147,7 +113,6 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.option[3] || "" }
                     autoComplete="off" 
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.option4 } />
             </div>
             <div className="form-group">
                 <label className="font-weight-bold">Đáp án</label>
@@ -155,7 +120,6 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.answer }
                     autoComplete="off"
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.answer } />
             </div>
             <div className="text-center col-12">
             <button type="button" className="btn btn-primary m-1"
