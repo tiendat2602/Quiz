@@ -38,9 +38,9 @@ export class Header extends Component {
 					        Thông Tin
 					      </a>
 					      <div className="dropdown-menu">
-					      	<Link className="dropdown-item" to="/infomation/first">Lời nói đầu</Link>
-					      	<Link className="dropdown-item" to="/infomation/second">Bản quyền</Link>
-					      	<Link className="dropdown-item" to="/infomation/third">Liên hệ</Link>
+					      	<Link className="dropdown-item text-success" to="/infomation/first">Lời nói đầu</Link>
+					      	<Link className="dropdown-item text-success" to="/infomation/second">Bản quyền</Link>
+					      	<Link className="dropdown-item text-success" to="/infomation/third">Liên hệ</Link>
 					      </div>
 					     </li>
 					     <li className="nav-item">

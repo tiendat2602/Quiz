@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { dataTypes } from '../data/Types';
-import { ValidationError } from './ValidationError';
+import { ValidationQuestion } from './ValidationQuestion';
 
 export class EditQuestion extends Component {
 
@@ -115,7 +115,7 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.question }
                    	autoComplete="off"
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.question } />
+                <ValidationQuestion errors={ this.state.validationErrors.question } />
             </div>
             <div className="form-group">
                 <label className="font-weight-bold">Phương án 1</label>
@@ -123,7 +123,7 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.option[0] || "" }
                     autoComplete="off"
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.option1 } />
+                <ValidationQuestion errors={ this.state.validationErrors.option1 } />
             </div>
             <div className="form-group">
                 <label className="font-weight-bold">Phương án 2</label>
@@ -131,7 +131,7 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.option[1] || "" }
                     autoComplete="off"
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.option2 } />
+                <ValidationQuestion errors={ this.state.validationErrors.option2 } />
             </div>
             <div className="form-group">
                 <label className="font-weight-bold">Phương án 3</label>
@@ -139,7 +139,7 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.option[2] || "" }
                     autoComplete="off"
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.option3 } />
+                <ValidationQuestion errors={ this.state.validationErrors.option3 } />
             </div>
             <div className="form-group">
                 <label className="font-weight-bold">Phương án 4</label>
@@ -147,7 +147,7 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.option[3] || "" }
                     autoComplete="off" 
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.option4 } />
+                <ValidationQuestion errors={ this.state.validationErrors.option4 } />
             </div>
             <div className="form-group">
                 <label className="font-weight-bold">Đáp án</label>
@@ -155,7 +155,7 @@ export class EditQuestion extends Component {
                     defaultValue={ this.state.question.answer }
                     autoComplete="off"
                     onChange = { this.handleOnChange } />
-                <ValidationError errors={ this.state.validationErrors.answer } />
+                <ValidationQuestion errors={ this.state.validationErrors.answer } />
             </div>
             <div className="text-center col-12">
             <button type="button" className="btn btn-primary m-1"

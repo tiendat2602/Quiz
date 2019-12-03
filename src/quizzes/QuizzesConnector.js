@@ -8,6 +8,7 @@ import { TableMenuCategories } from './TableMenuCategories';
 import { DataGetter } from '../data/DataGetter';
 import { MiddleComponent } from './MiddleComponent';
 import { Footer } from './Footer';
+import { Infomation } from './Infomation';
 
 
 const randomQuestion = (allQuestion = []) => {
@@ -52,6 +53,9 @@ export const QuizzesConnector = connect(mapStateToProps,mapDispatchToProps)(
 						<Switch>
 							<Route path="/" exact = {true} render = {(routeProps) => 
 								<TableMenuCategories categories= {this.props.categories} />} />
+							<Route path="/infomation/:order"
+								  render={ (routeProps) => 
+								<Infomation {...this.props} {...routeProps} />} />
 							<Route path="/:category/:result?" exact={true} render={(routeProps) =>
 								<DataGetter {...this.props} {...routeProps} >
 									<MiddleComponent {...this.props} {...routeProps} />

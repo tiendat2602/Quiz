@@ -14,6 +14,17 @@ export const loadData = (dataType,params) => ({
 				)
 })
 
+export const AdminLoadData = (dataType,params) => ({
+	type: actionTypes.LOAD_DATA,
+	payload: dataSource.AdminGetData(dataType,params)
+				.then(response => 
+					({	dataType, 
+						data: response.data,
+						params
+					})
+				)
+})
+
 export const deleteQuestion = (dataType,data) => ({
  	type: actionTypes.DELETE_DATA,
  	payload: dataSource.deleteData(dataType,data).then(response => ({

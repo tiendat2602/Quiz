@@ -8,6 +8,8 @@ import { AdminMenuCategories } from './AdminMenuCategories';
 import { AdminDataGetter } from './AdminDataGetter';
 import { QuestionsTable } from './QuestionsTable';
 import { EditQuestion } from './EditQuestion';
+import { AuthPrompt } from '../auth/AuthPrompt';
+import { authWrapper } from '../auth/AuthWrapper';
 
 
 
@@ -19,8 +21,13 @@ const mapDispatchToProps = {
 	loadData,deleteQuestion, getOneQuestion, updateQuestion, storeQuestion
 }
 
-export const Admin = connect(mapStateToProps,mapDispatchToProps)(
+export const Admin = authWrapper(connect(mapStateToProps,mapDispatchToProps)(
 	class InnerAdmin extends Component {
+
+		signout = () => {
+			this.props.signout();
+			this.props.history.push("/admin");
+		}
 		
 	render() {
 
@@ -38,10 +45,12 @@ export const Admin = connect(mapStateToProps,mapDispatchToProps)(
 		                    		Quiz.com
 		                    	</Link>
 		                    </div>
-			                        <button onClick={ this.props.signout }
+			                    { this.props.isAuthenticated &&
+			                        <button onClick={ this.signout }
 			                            className="btn btn-sm btn-danger text-white ml-auto m-2">
 			                            Đăng Xuất
 			                        </button>
+	                 			} 
 		                	</div>
 		            </div>
 		            <div className="row">
@@ -50,6 +59,10 @@ export const Admin = connect(mapStateToProps,mapDispatchToProps)(
 		            	</div>
 		            	<div className="col-sm-12 col-md-10">
 		            		<Switch>
+		            			{ 
+		                            !this.props.isAuthenticated && 
+		                               <Route component={ AuthPrompt } />
+                        		}
 		            			<Redirect from="/admin" to="/admin/list/html" exact={true} />
 		            			<Route path="/admin/list/:category" exact = {true} render={(routeProps) =>
 		            				<AdminDataGetter {...this.props} {...routeProps}>
@@ -74,5 +87,5 @@ componentDidMount() {
 
 	}
 
-)
+))
 

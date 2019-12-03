@@ -14,3 +14,5 @@ export const RestUrls = {
 	[dataTypes.XML]: `${protocol}://${hostname}:${port}/api/xml`
 }
 
+export const authUrl = `${protocol}://${hostname}:${port}/login`;
+
