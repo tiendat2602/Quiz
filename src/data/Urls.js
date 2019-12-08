@@ -1,18 +1,18 @@
 import { dataTypes } from './Types';
 
-const protocol = "http";
-const hostname = "localhost";
-const port = 3500;
+//const protocol = "http";
+//const hostname = "localhost";
+//const port = 3500;
 
 export const RestUrls = {
-	[dataTypes.CATEGORIES]: `${protocol}://${hostname}:${port}/api/categories`,
-	[dataTypes.HTML]: `${protocol}://${hostname}:${port}/api/html`,
-	[dataTypes.CSS]: `${protocol}://${hostname}:${port}/api/css`,
-	[dataTypes.JAVASCRIPT]: `${protocol}://${hostname}:${port}/api/javascript`,
-	[dataTypes.BOOTSTRAP]: `${protocol}://${hostname}:${port}/api/bootstrap`,
-	[dataTypes.JQUERY]: `${protocol}://${hostname}:${port}/api/jquery`,
-	[dataTypes.XML]: `${protocol}://${hostname}:${port}/api/xml`
+	[dataTypes.CATEGORIES]: `/api/categories`,
+	[dataTypes.HTML]: `/api/html`,
+	[dataTypes.CSS]: `/api/css`,
+	[dataTypes.JAVASCRIPT]: `/api/javascript`,
+	[dataTypes.BOOTSTRAP]: `/api/bootstrap`,
+	[dataTypes.JQUERY]: `/api/jquery`,
+	[dataTypes.XML]: `/api/xml`
 }
 
-export const authUrl = `${protocol}://${hostname}:${port}/login`;
+export const authUrl = `/login`;
 
