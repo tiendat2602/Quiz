@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class FirstInfomation extends Component {
 
 	render() {
-		return <div className="col-md-12">
+		return <div className="col-md-12" style={{height:350}}>
 				<div className="card maincard border border-0 rounded-0">
 				 	<div className="card-header bg-primary text-white text-center font-weight-bold rounded-0">
 				 		Lời Nói Đầu
@@ -11,11 +11,11 @@ export class FirstInfomation extends Component {
 				 	<div className="card-body">
 				 		<h5>Chào các bạn</h5>
 				 		<p>
-				 			Thư viện ebook sachhay.com ra đời với mục đích chia sẻ ebook đến với mọi người , 
-				 			hoàn toàn miễn phí , đa số mọi bài viết đều có định dạng hỗ trợ các bạn đọc 
-				 			sách trên smartphone  hoặc máy đọc sách (mobi ,epub ,prc) và 
-				 			hiện mình đang tiếp tục code thêm chức năng cho web, 
-				 			để sắp tới mọi người có thể đăng kí thành viên và cùng chia sẻ những ebook hay
+				 			Quiz.com ra đời với mục đích giúp các bạn có thể ôn tập kiến thức lập trình
+				 			của mình một cách nhanh chóng thông qua hình thức thi trắc nghiệm.
+				 			Các câu hỏi của trang được sưu tầm từ nhiều trang web dạy lập trình có uy tín.
+				 			Hiện tại trang vẫn đang tiếp tục sưu tầm để bổ sung vào ngân hàng câu hỏi để nâng 
+				 			cao chất lượng các bài test.
 				 		</p>
 				 		<p>
 				 			Chúc các bạn vui vẻ !

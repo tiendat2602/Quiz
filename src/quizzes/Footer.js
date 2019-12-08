@@ -5,7 +5,7 @@ export class Footer extends Component {
 	render() {
 		return <footer className="footer d-flex align-content-center pl-2 pr-2 text-white bg-success">
 		    		<div className="mr-auto mt-4">
-						<img src="" alt="Quiz.com"/>
+		    			<span>Quiz.com</span>
 						<p>© 2019 Quiz.com. All rights reversed </p>
 					</div>
 					<div className="ml-auto mt-4">

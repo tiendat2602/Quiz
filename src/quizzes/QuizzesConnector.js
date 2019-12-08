@@ -18,7 +18,7 @@ const randomQuestion = (allQuestion = []) => {
 
 	var subQuestions = [];
 	var ids = allQuestion.map(q => q.id);
-	while (subQuestions.length < 5) {
+	while (subQuestions.length < 10) {
 		var randomIndex = Math.floor(Math.random()*ids.length);
 		var selectedId = ids[randomIndex];
 		var selectedQuestion = allQuestion.find(q => q.id === selectedId);

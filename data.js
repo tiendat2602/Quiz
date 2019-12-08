@@ -811,8 +811,77 @@ return {
 					question:"There is a way of describing XML data, how?",
 					option:["XML uses a DTD to describe the data","XML uses XSL to describe data",
 							"XML uses a description node to describe data","XML uses a JXS to describe the data"],
-					answer:"XML uses XSL to describe data"
+					answer:"XML uses a DTD to describe the data"
+				},
+				{
+					id:3,
+					question:"What is the correct syntax of the declaration which defines the XML version?",
+					option:["<?xml version='1.0' />","<xml version='1.0' />",
+							"<?xml version='1.0'?>","<xml version:'1.0' />"],
+					answer:"<?xml version='1.0'?>"
+				},
+				{
+					id:4,
+					question:"What does DTD stand for?",
+					option:["Direct Type Definition","Dynamic Type Definition","Do The Dance","Document Type Definition"],
+					answer:"Document Type Definition"
+				},
+				{
+					id:5,
+					question:"Which statement is true?",
+					option:["All the statements are true","All XML documents must have a DTD",
+							"All XML documents must be lowercase","All XML elements must be properly closed"],
+					answer:"All XML elements must be properly closed"
+				},
+				{
+					id:6,
+					question:"Which statement is NOT true?",
+					option:["White-space is not preserved in XML","XML elements must be properly nested",
+							"XML tags are case sensitive","XML documents must have a root tag"],
+					answer:"White-space is not preserved in XML"
+				},
+				{
+					id:7,
+					question:"Which is not a correct name for an XML element?",
+					option:["All 3 names are incorrect","<1dollar>","<Note>","<h1>"],
+					answer:"<1dollar>"
+				},
+				{
+					id:8,
+					question:"Which is not a correct name for an XML element?",
+					option:["<age>","<NAME>","<first name>"," All 3 names are incorrect"],
+					answer:"<first name>"
+				},
+				{
+					id:9,
+					question:"Which is a correct name for an XML element?",
+					option:["<phone number>","<7eleven>","<xmldocument>","<Name>"],
+					answer:"<Name>"
+				},
+				{
+					id:10,
+					question:"What does XSL stand for?",
+					option:["eXtra Style Language","eXtensible Style Listing",
+							"eXtensible Stylesheet Language","eXpandable Style Language"],
+					answer:"eXtensible Stylesheet Language"
+				},
+				{
+					id:11,
+					question:"What is a correct way of referring to a stylesheet called 'mystyle.xsl' ?",
+					option:["<link type='text/xsl' href='mystyle.xsl' />",
+							"<?xml-stylesheet type='text/xsl' href='mystyle.xsl' ?>",
+							"<stylesheet type='text/xsl' href='mystyle.xsl' />",
+							"<script type='text/xsl' href='mystyle.xsl' />"],
+					answer:"<?xml-stylesheet type='text/xsl' href='mystyle.xsl' ?>"
+				},
+				{
+					id:12,
+					question:"For the XML parser to ignore a certain section of your XML document, which syntax is correct?",
+					option:["<![CDATA[ Text to be ignored ]]>","<PCDATA> Text to be ignored </PCDATA>",
+							"<xml:CDATA[ Text to be ignored ]>","<CDATA> Text to be ignored </CDATA>"],
+					answer:"<![CDATA[ Text to be ignored ]]"
 				}
+			
 		 ]
 	}
 }

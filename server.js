@@ -25,7 +25,6 @@ app.use(cors());
 app.use(jsonServer.bodyParser);
 app.use(auth);
 app.use("/api", (req, resp, next) => router(req, resp, next));
-app.use("/admin", (req, resp, next) => router(req, resp, next));
 
 
 chokidar.watch(fileName).on("change", () => {

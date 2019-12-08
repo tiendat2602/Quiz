@@ -7,12 +7,12 @@ export class Header extends Component {
 	render() {
 		return <header>
 				<div className="d-flex p-2">
-					<Link to ="/" className="ml-5 text-primary">Quizzes.com</Link>
+					<Link to ="/" className="ml-5 text-primary">Quiz.com</Link>
 					<span className="ml-auto mr-5 font-weight-light font-italic">
-					Thousand quizzes
+						Learning every where
 					</span>
 				</div>
-				<nav className="navbar navbar-expand-sm  bg-success">
+				<nav className="navbar navbar-expand-sm  bg-success sticky-top">
   					<button className="navbar-toggler bg-light" type="button" 
   						data-toggle="collapse" data-target="#collapsibleNavbar">
     					<span className="navbar-toggler-icon text-dark"></span>
