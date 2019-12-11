@@ -2,6 +2,10 @@ This project is quick test about programing language
 
 To run project go to quiz folder and run command 
 
+### `npm run build` 
+
+Then run command 
+
 ### `node server.js ./data.json 4000`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
